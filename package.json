@@ -1,1 +1,40 @@
-{     "devDependencies": {         "trash-cli": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-trash-cli",     "homepage": "https://github.com/npmtest/node-npmtest-trash-cli",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-trash-cli.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic test coverage for  [trash-cli (v1.4.0)](https://github.com/sindresorhus/trash-cli#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-trash-cli.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-trash-cli) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-trash-cli.svg)](https://travis-ci.org/npmtest/node-npmtest-trash-cli)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "trash-cli": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-trash-cli",
+    "keywords": [
+        "coverage",
+        "test",
+        "trash-cli"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_trash_cli.js",
+    "name": "npmtest-trash-cli",
+    "nameAlias": "npmtest_trash_cli",
+    "nameOriginal": "npmtest-trash-cli",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-trash-cli.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
